@@ -1,14 +1,34 @@
-# questions
-project_name:
+# Questions
+project_type:
+    type: str
+    help: What kind of Typst project is this going to be?
+    default: document
+    choices:
+        - document
+        - package
+project_description:
+    type: str
+    help: Short project description
+    placeholder: ""
+document_name:
     type: str
     help: What is your project name?
-
-is_package:
-    type: bool
-    default: false
-    help: Is this going to be a Typst package?
-
+    when: "{% if project_type == 'document' %}true{% endif %}"
 package_name:
     type: str
     help: What is the package name?
-    when: "{% if is_package %}true{% endif %}"
+    placeholder: "{{project_name}}"
+    when: "{% if project_type == 'package' %}true{% endif %}"
+author:
+    type: str
+    help: Who is the author (Firstname Lastname <you@mail.com>)
+flakes_enabled:
+    type: bool
+    help: Enable nix flakes (for reproducibility)?
+
+# Configuration
+_exclude:
+  - ".git"
+  - "copier.yaml"
+  - "LICENSE"
+  - "README.md"

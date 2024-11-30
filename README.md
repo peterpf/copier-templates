@@ -50,8 +50,12 @@ A prompt asks whether to enable this feature, if selected, the following files w
 ```text
 . root/
 `- {{project_name}}/
+   |- .envrc
    `- flake.nix 
 ```
 
-The `flake.nix` file contains the instructions to install base software (such as a specific Typst version) and other external dependencies.
+The purpose of each file is describled below:
+
+- `flake.nix`: Contains the instructions to install base software (such as a specific Typst version) and other external dependencies on the host system.
+- `.envrc`: Uses [direnv](https://github.com/direnv/direnv) for automatic environment activation when entering the directory via a shell.
 

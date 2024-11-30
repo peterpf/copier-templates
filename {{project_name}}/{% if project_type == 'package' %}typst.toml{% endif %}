@@ -1,0 +1,17 @@
+[package]
+name = "{{project_name}}"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["{{author_name}}"]
+license = "CC0-1.0"
+description = "{{project_description}}"
+repository = ""
+keywords = []
+categories = []
+compiler = "0.12.0"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
