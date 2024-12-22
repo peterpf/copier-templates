@@ -29,6 +29,7 @@ author:
 flakes_enabled:
     type: bool
     help: Enable nix flakes (for reproducibility)?
+    default: yes
 
 # Configuration
 _exclude:
