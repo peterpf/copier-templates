@@ -23,6 +23,14 @@ package_name:
     help: What is the package name (defaults to the project_name)?
     placeholder: "{{project_name}}"
     when: "{% if project_type == 'package' %}true{% endif %}"
+typst_version:
+    type: str
+    help: The used version of Typst
+    choices:
+        0.12.0 (latest): 0.12.0
+        0.11.0: 0.11.0
+        0.10.0: 0.10.0
+    default: 0.12.0
 author:
     type: str
     help: Who is the author (Firstname Lastname <you@mail.com>)

@@ -3,16 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/24.05";
+    typst.url = "github:typst/typst?ref=v{{typst_version}}";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, typst }:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
     devShells.${system}.default = pkgs.mkShell {
-      packages = [ pkgs.typst ];
+      packages = [
+        typst.packages.${system}.typst-dev
+      ];
     };
   };
 }
