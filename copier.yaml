@@ -1,4 +1,7 @@
 # Questions
+project_name:
+  type: str
+  help: The project name (a handle used in the file-system and metadata)
 project_type:
     type: str
     help: What kind of Typst project is this going to be?
@@ -12,11 +15,12 @@ project_description:
     placeholder: ""
 document_name:
     type: str
-    help: What is your project name?
+    help: What is your project name (defaults to the project_name)?
+    placeholder: "{{project_name}}"
     when: "{% if project_type == 'document' %}true{% endif %}"
 package_name:
     type: str
-    help: What is the package name?
+    help: What is the package name (defaults to the project_name)?
     placeholder: "{{project_name}}"
     when: "{% if project_type == 'package' %}true{% endif %}"
 author:
